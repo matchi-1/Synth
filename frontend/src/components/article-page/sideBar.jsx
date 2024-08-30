@@ -19,7 +19,8 @@ const SideBar = ({ isSidebarOpen, toggleSidebar, url}) => {
   };
 
   const dropdownClick = (option) => {
-    setSelectedOption(option);
+    setNotes([])
+    setSelectedOption(option);  
     setDropdown(false);
 
     if (option === "Highly Relevant") {
@@ -32,9 +33,19 @@ const SideBar = ({ isSidebarOpen, toggleSidebar, url}) => {
   };
   const handlePrompt = async (event) => {
     event.preventDefault();
-    setNotes([]);
-    setIsLoading(true);
-    setNotes([...notes, ...['The Philippines, a developing country in Southeast Asia with a population of over 100 million people', 'After the Spanish-American War in 1898, the Philippines was ceded to the United States.']])
+    const test = {
+      "Highly Relevant" : ["The Philippines, a developing country in Southeast Asia with a population of over 100 million people", 
+        "After the Spanish-American War in 1898, the Philippines was ceded to the United States.", " The American colonial period brought significant changes to the country’s education system, with the government introducing a public school system that aimed to provide education to all Filipinos. "],
+        "Moderately Relevant": ["Poverty has long been a pervasive and intractable challenge in the Philippines, and education remains one of the most critical casualties of this social malady. The Philippine Statistics Authority has reported that approximately 16.7 million Filipinos live below the poverty line, with many of them struggling to make ends meet on a daily basis. "],
+        "Tangentially Relevant": ["Another study by Howlett et.al. (2018) looked at the impact of the 4Ps program on the education outcomes of children living in poor communities. The study found that the program had a positive effect on both school enrollment and attendance, with children from beneficiary households having higher rates of school attendance than their counterparts from non-beneficiary households."]
+        
+      }
+      setIsLoading(true);
+      const found = test[selectedOption].some(r => notes.includes(r));
+      if(!found)  {
+        setNotes([]);
+        setNotes([...notes, ...test[selectedOption]]);
+      }
     // const res = await chat(url, textareaRef.current);
     // res.forEach((note) => {
     //   const obj = JSON.parse(note);      
@@ -105,7 +116,7 @@ const SideBar = ({ isSidebarOpen, toggleSidebar, url}) => {
               placeholder="Type here..."
             />
             <div className="prompt-button-container">
-              <button type="submit" disabled={!url} onClick={handlePrompt}>
+              <button type="submit" onClick={handlePrompt}>
                 <IoMdSend />
               </button>
             </div>
@@ -148,7 +159,7 @@ const SideBar = ({ isSidebarOpen, toggleSidebar, url}) => {
                   </ul>
                 )}
               </div>
-              <button className="add-note-btn">Add</button>
+              <button className="add-note-btn" onClick={handlePrompt}>Add</button>
             </div>
           </div>
         </div>
