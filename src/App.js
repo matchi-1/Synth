@@ -1,15 +1,10 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Article from "./pages/Article";
-import Space from "./pages/Space";
+import React from 'react';
+import CitationForm from './components/citation';
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Article />}></Route>
-        <Route path="/space" element={<Space />}></Route>
-      </Routes>
+      <CitationForm />
     </div>
   );
 }
