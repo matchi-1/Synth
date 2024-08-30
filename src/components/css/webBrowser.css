@@ -1,0 +1,29 @@
+.frame-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.search {
+    background: rgb(189, 124, 49);
+}
+
+.url-container {
+    padding: 25px 30px;
+    background-color: #fff;
+    border-bottom: 2px solid rgba(148, 148, 148, 1);
+}
+
+.prompt h3 {
+    font-family: var(--fontFamily-common);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: rgba(112, 112, 112, 1);
+}
+  
+.scrollable{
+    width: 50rem; /* Set the width as needed */
+    height: 50rem; /* Set the height as needed */
+    overflow: auto; /* Adds scrollbars if content overflows */
+    border: 1px solid #ccc; 
+}
