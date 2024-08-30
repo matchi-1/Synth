@@ -1,14 +1,26 @@
 import React, { useState, useRef, useEffect } from "react";
-import { IoIosCloseCircle, IoMdSend } from "react-icons/io";
+import { IoIosCloseCircle, IoMdSend, IoIosArrowDown } from "react-icons/io";
 import "../css/sideBar.css";
 
 const SideBar = ({ isSidebarOpen, toggleSidebar }) => {
+  const [isDropdown, setDropdown] = useState(false);
   const [text, setText] = useState("");
+  const [selectedOption, setSelectedOption] = useState("Highly Relevant");
   const textareaRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setDropdown(!isDropdown);
+    console.log(isDropdown);
+  };
+
+  const dropdownClick = (option) => {
+    setSelectedOption(option);
+    setDropdown(false);
+  };
 
   useEffect(() => {
     const textarea = textareaRef.current;
-    textarea.style.height = "auto";
+    textarea.style.height = "1rem";
 
     const maxHeight = parseFloat(getComputedStyle(textarea).lineHeight) * 3; // Calculate the maximum height for 3 rows
     textarea.style.height = `${Math.min(textarea.scrollHeight, maxHeight)}px`;
@@ -28,21 +40,27 @@ const SideBar = ({ isSidebarOpen, toggleSidebar }) => {
         <div className="legend">
           <h3>LEGEND</h3>
           <table>
-            <tr>
-              <td class="highly-relevant">Highly Relevant Text</td>
-              <td class="moderately-relevant">Moderately Relevant Text</td>
-            </tr>
-            <tr>
-              <td class="tangentially-relevant">Tangentially Relevant Text</td>
-              <td class="irrelevant">Irrelevant Text</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td className="moderately-relevant">
+                  Moderately Relevant Text
+                </td>
+                <td className="highly-relevant">Highly Relevant Text</td>
+              </tr>
+              <tr>
+                <td className="tangentially-relevant">
+                  Tangentially Relevant Text
+                </td>
+                <td className="irrelevant">Irrelevant Text</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
 
       <div className="prompt-container">
         <div className="prompt">
-          <h3>What do you want to know about this site?</h3>
+          <h3>WHAT DO YOU WANT TO KNOW ABOUT THIS SITE?</h3>
           <form className="prompt-box">
             <textarea
               ref={textareaRef}
@@ -51,11 +69,47 @@ const SideBar = ({ isSidebarOpen, toggleSidebar }) => {
               rows="1"
               placeholder="Type here..."
             />
-            <button type="submit">
-              <IoMdSend />
-            </button>
+            <div className="prompt-button-container">
+              <button type="submit">
+                <IoMdSend />
+              </button>
+            </div>
           </form>
         </div>
+      </div>
+
+      <div className="notes-container">
+        <div className="notes-filter">
+          <div className="styled-dropdown">
+            <span>Include the following in your notes:</span>
+            <button className="dropdown-toggle" onClick={toggleDropdown}>
+              {selectedOption}
+            </button>
+            {isDropdown && (
+              <ul className="dropdown-menu">
+                <li
+                  onClick={() => dropdownClick("Highly Relevant")}
+                  className="highly-relevant"
+                >
+                  Highly Relevant
+                </li>
+                <li
+                  onClick={() => dropdownClick("Moderately Relevant")}
+                  className="moderately-relevant"
+                >
+                  Moderately Relevant
+                </li>
+                <li
+                  onClick={() => dropdownClick("Tangentially Relevant")}
+                  className="tangentially-relevant"
+                >
+                  Tangentially Relevant
+                </li>
+              </ul>
+            )}
+          </div>
+        </div>
+        <div className="notes"></div>
       </div>
     </div>
   );

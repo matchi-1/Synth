@@ -33,6 +33,7 @@
 .legend h3 {
   color: rgba(112, 112, 112, 1);
   font-size: 1rem;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 
@@ -71,33 +72,113 @@
 /* Prompt */
 .prompt-container {
   padding: 25px 30px;
+  background-color: #fff;
+  border-bottom: 2px solid rgba(148, 148, 148, 1);
 }
 
 .prompt h3 {
+  font-family: var(--fontFamily-common);
   font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgba(112, 112, 112, 1);
 }
 
 .prompt-box {
   border: 2px solid rgba(148, 148, 148, 1);
   border-radius: 12px;
+  height: 100%;
   width: 100%;
   background-color: rgba(255, 255, 255, 1);
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   padding: 10px 12px;
 }
 
 .prompt-box textarea {
   width: 100%;
+  color: rgba(148, 148, 148, 1);
   outline: none;
   border: none;
   box-sizing: "border-box";
   resize: none;
   overflow: "hidden";
-  min-height: 50px;
   font-size: 0.9rem;
-  line-height: "1.5";
-  border: "1px solid #ccc";
+  line-height: 1.2;
   border-radius: "4px";
+}
+
+.prompt-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.prompt-box button {
+  background-color: rgba(254, 166, 66, 1);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-size: 20px;
+  color: #fff;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+
+/* Notes */
+
+.styled-dropdown {
+  position: relative; /* Ensure dropdown is relative to the button */
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Add spacing if needed */
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: white;
+  color: #28a745; /* Adjust as needed */
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute; /* Position the dropdown relative to its container */
+  top: 100%; /* Position it below the button */
+  left: 0;
+  min-width: 160px; /* Ensure sufficient width */
+  background-color: white;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Add shadow for visibility */
+  display: block; /* Ensure it's displayed */
+}
+
+.dropdown-menu li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f1f1f1;
+}
+
+.highly-relevant {
+  color: #28a745; /* Adjust as needed */
+}
+
+.moderately-relevant {
+  color: #ffc107; /* Adjust as needed */
+}
+
+.tangentially-relevant {
+  color: #6f42c1; /* Adjust as needed */
 }
