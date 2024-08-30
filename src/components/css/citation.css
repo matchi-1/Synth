@@ -1,0 +1,227 @@
+/* General Styles */
+*:focus {
+  outline: 0;
+}
+
+/* Container Styles */
+.citation-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form Styles */
+/* Container Styles */
+.citation-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form Styles */
+.citation-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.citation-form #link {
+  flex-grow: 1; /* Ensure it expands to fill available space */
+  width: 100%; /* Make sure it takes up full width within the flex container */
+  max-width: 900px; /* Ensure it shrinks properly within the flexbox */
+}
+
+.citation-form .input-container {
+  display: flex;
+  flex-grow: 1; /* Allows the input container to take full space */
+  align-items: center;
+  max-width: 900px;
+}
+
+.citation-form .input-icon {
+  margin-right: 10px;
+}
+
+.citation-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input {
+  width: 100%; /* Allow the input to take full width within its container */
+  padding: 10px 10px 10px 35px; /* Padding for icon space */
+  border: 4px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Other styles omitted for brevity */
+
+.citation-form .input-icon {
+  margin-right: 10px;
+}
+
+.citation-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input {
+  position: relative;
+  width: 1000px;
+  padding: 10px 10px 10px 35px; /* Padding for icon space */
+  border: 4px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.citation-result textarea {
+  width: 700px;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  color: rgba(154, 103, 195, 1);
+  resize: none;
+  overflow: auto;
+  margin-right: 15px;
+  text-align: left;
+}
+
+textarea::-webkit-scrollbar {
+  -webkit-transform: translateX(-10px); /* Move scrollbar to the left */
+  transform: translateX(-10px);
+}
+
+/* Button Styles */
+.submit-btn {
+  border: none;
+  border-radius: 20px;
+  background-color: #fea642;
+  color: white;
+  padding: 15px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon {
+  top: 50%;
+  left: 10px;
+  padding: 0 10px;
+  color: white;
+}
+
+.edit-btn {
+  margin: auto;
+  width: 300px;
+  padding: 8px 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: #785595;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-btn .fa-edit {
+  margin-right: 8px;
+}
+
+/* Result and Style Container */
+.citation-result {
+  width: 700px;
+  box-shadow: 1.5px 3px 1px 1px rgba(201, 201, 201, 0.616);
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1.2px solid #8c6aa8;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.citation-style {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.citation-style label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.citation-style input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Contributor Styles */
+.contributors {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-inputs {
+  display: flex;
+}
+
+/* Error Message Styles */
+.error-message p {
+  color: red;
+  font-size: 14px;
+}
+
+/* Radio Container Styles */
+.radio-container {
+  width: fit-content;
+  padding: 0 12px;
+  -ms-flex-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio-container-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.radio-container input {
+  width: fit-content;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#link {
+  border: none;
+}
+
+.input-container {
+  border: 1.5px solid rgba(148, 148, 148, 1);
+  border-radius: 10px;
+  padding: 5px 15px;
+}
+
+.input-icon {
+  font-size: 24px;
+  color: #4d4d4d;
+}

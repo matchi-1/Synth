@@ -5,7 +5,7 @@
   right: 0;
   width: var(--sidebar-width);
   background-color: rgba(255, 246, 255, 1);
-  height: 100%;
+  height: 100vw;
   color: #000;
   transform: translateX(100%);
   transition: transform 0.3s ease;
@@ -21,7 +21,7 @@
 .legend-container {
   width: 100%;
   border-bottom: 2px solid rgba(148, 148, 148, 1);
-  padding: 15px 20px;
+  padding: 15px 20px 30px 20px;
 }
 
 .legend {
@@ -72,7 +72,8 @@
 
 /* Prompt */
 .prompt-container {
-  padding: 25px 30px;
+  padding: 25px 30px 40px 25px;
+
   background-color: #fff;
   border-bottom: 2px solid rgba(148, 148, 148, 1);
 }
@@ -136,7 +137,7 @@
   position: relative;
   fill: 100%;
   height: 100%;
-  padding: 15px 20px;
+  padding: 25px 20px;
 }
 
 .styled-dropdown {
@@ -244,7 +245,7 @@
 .notes {
   position: absolute;
   overflow-y: scroll;
-  top: 60px;
+  top: 75px;
   bottom: 40px;
   left: 20px;
   right: 20px;

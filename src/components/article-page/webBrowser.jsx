@@ -3,8 +3,10 @@ import React, { useRef, useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import axios from "axios";
 import "../css/webBrowser.css";
+import CitationForm from "./../citation";
 
 const WebBrowser = ({ isSidebarOpen }) => {
+<<<<<<< HEAD
   const textRef = useRef();
   const [list, setList] = useState([]);
   
@@ -40,6 +42,15 @@ const WebBrowser = ({ isSidebarOpen }) => {
         })
       }
       <div className="citation"></div>
+=======
+  return (
+    <div className={`browser-container ${isSidebarOpen ? "open" : ""}`}>
+      <div className="searchBar"></div>
+      <div className="browser"></div>
+      <div className="citation-container">
+        <CitationForm />
+      </div>
+>>>>>>> 87ab833df88a4cfa0bc2f9a5fe6fc9c2bd0a9486
     </div>
   );
     }
