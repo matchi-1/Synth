@@ -1,0 +1,103 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--sidebar-width);
+  background-color: rgba(255, 246, 255, 1);
+  height: 100%;
+  color: #000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  border-left: 2px rgba(124, 72, 166, 1) solid;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Legends */
+
+.legend-container {
+  width: 100%;
+  border-bottom: 2px solid rgba(148, 148, 148, 1);
+  padding: 15px 20px;
+}
+
+.legend {
+  border: 1.5px solid rgba(167, 167, 167, 1);
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 15px 20px;
+}
+
+.legend h3 {
+  color: rgba(112, 112, 112, 1);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.legend table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.legend td {
+  font-family: consolas;
+  padding: 5px 8px;
+  border: 1px solid #ddd;
+  font-size: 0.8rem;
+}
+
+.highly-relevant {
+  color: rgba(78, 150, 56, 1);
+  background-color: #d7f3d0;
+}
+
+.moderately-relevant {
+  color: rgba(216, 143, 75, 1);
+  background-color: #fff4ce;
+}
+
+.tangentially-relevant {
+  color: rgba(154, 103, 195, 1);
+  background-color: #e9d8fd;
+}
+
+.irrelevant {
+  color: rgba(158, 158, 158, 1);
+  background-color: #f7f7f7;
+}
+
+/* Prompt */
+.prompt-container {
+  padding: 25px 30px;
+}
+
+.prompt h3 {
+  font-size: 1rem;
+}
+
+.prompt-box {
+  border: 2px solid rgba(148, 148, 148, 1);
+  border-radius: 12px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 10px 12px;
+}
+
+.prompt-box textarea {
+  width: 100%;
+  outline: none;
+  border: none;
+  box-sizing: "border-box";
+  resize: none;
+  overflow: "hidden";
+  min-height: 50px;
+  font-size: 0.9rem;
+  line-height: "1.5";
+  border: "1px solid #ccc";
+  border-radius: "4px";
+}
