@@ -1,5 +1,5 @@
 function Space() {
-  return <div></div>;
+  return <div className="space-container"></div>;
 }
 
 export default Space;
