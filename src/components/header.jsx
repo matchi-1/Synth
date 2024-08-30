@@ -8,7 +8,14 @@ function Header({ toggleSidebar }) {
     <>
       <Navbar key={false} expand={false} className="bg-body-tertiary mb-3">
         <Container>
-          <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+          <Navbar.Brand href="#">
+            <img
+              className="header-logo"
+              src="/assets/img/logo.png"
+              alt="logo.png"
+            />
+            Navbar Offcanvas
+          </Navbar.Brand>
           <Navbar.Toggle
             aria-controls={`offcanvasNavbar-expand-${false}`}
             onClick={toggleSidebar}

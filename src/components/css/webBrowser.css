@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .frame-container {
     display: flex;
     flex-direction: column;
@@ -27,3 +28,25 @@
     overflow: auto; /* Adds scrollbars if content overflows */
     border: 1px solid #ccc; 
 }
+=======
+.article-main {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+}
+
+.browser-container {
+  display: flex;
+  width: 10%;
+  margin: 50px;
+  height: 300px; /* Subject to change */
+  border: 1px solid #000;
+  transition: margin-right 0.3s ease; /* Transitioning margin-right */
+}
+
+.browser-container.open {
+  margin-right: var(--sidebar-width);
+}
+>>>>>>> f0b7a848bd110ae61f3cc92120c03cef09a96a07
