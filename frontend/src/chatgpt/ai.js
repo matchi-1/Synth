@@ -34,12 +34,7 @@ function splitTextIntoThree(text) {
 async function chat(link, prompt) {
    const article = await getSite(link);
    const split = splitTextIntoThree(article);
-   split.forEach((item) => { 
-    console.log(item);
-     console.log("\n")
-     console.log("\n")
-     console.log("\n")
-    })
+
    let responses = []
     await Promise.all(split.map(async (text) => {
         const chatCompletion =  await client.chat.completions.create({

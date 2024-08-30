@@ -34,12 +34,13 @@ const SideBar = ({ isSidebarOpen, toggleSidebar, url}) => {
     event.preventDefault();
     setNotes([]);
     setIsLoading(true);
-    const res = await chat(url, textareaRef.current);
-    res.forEach((note) => {
-      const obj = JSON.parse(note);      
-      const arr = obj[selectedOption];
-      setNotes([...notes, ...arr])
-    })
+    setNotes([...notes, ...['The Philippines, a developing country in Southeast Asia with a population of over 100 million people', 'After the Spanish-American War in 1898, the Philippines was ceded to the United States.']])
+    // const res = await chat(url, textareaRef.current);
+    // res.forEach((note) => {
+    //   const obj = JSON.parse(note);      
+    //   const arr = obj[selectedOption];
+    //   setNotes([...notes, ...arr])
+    // })
     setIsLoading(false);
   }
 
