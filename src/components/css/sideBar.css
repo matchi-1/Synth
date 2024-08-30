@@ -133,6 +133,9 @@
 
 .notes-container {
   font-size: 0.9rem;
+  position: relative;
+  fill: 100%;
+  height: 100%;
   padding: 15px 20px;
 }
 
@@ -143,6 +146,7 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 10px; /* Add spacing if needed */
+  margin-bottom: 10px;
 }
 
 .note-utility {
@@ -238,8 +242,12 @@
 }
 
 .notes {
-  position: relative;
-  margin-top: 5px;
+  position: absolute;
+  overflow-y: scroll;
+  top: 60px;
+  bottom: 40px;
+  left: 20px;
+  right: 20px;
   min-height: 250px;
   overflow-y: scroll;
   background-color: rgba(255, 255, 255, 1);
@@ -247,6 +255,21 @@
   padding: 15px 15px;
   margin: 5px 15px;
   border: 2px solid rgba(124, 72, 166, 1);
+  height: 250px;
+  width: auto; /* Initial width */
+  transition: all 0.3s ease-in-out;
+}
+
+.notes.notes-expanded {
+  position: absolute;
+  width: auto; /* Initial width */
+  animation: expand 0.6s forwards;
+  top: 0px;
+  left: auto;
+  bottom: 0px;
+  right: 20px;
+  width: 650px;
+  height: 550px;
 }
 
 .notes h3 {
@@ -290,11 +313,24 @@
 
 .expand-notes-btn {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   bottom: 15px;
   right: 15px;
   font-size: 25px;
+  background-color: transparent;
+  outline: none;
+  border: none;
   color: rgba(112, 112, 112, 1);
   cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  border-radius: 10px;
+  padding: 5px 5px;
+}
+
+.expand-notes-btn:hover {
+  background-color: rgba(112, 112, 112, 0.09);
 }
 
 .expand-notes-btn:hover {

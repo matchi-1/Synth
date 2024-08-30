@@ -4,6 +4,7 @@ import "../css/sideBar.css";
 
 const SideBar = ({ isSidebarOpen, toggleSidebar }) => {
   const [isDropdown, setDropdown] = useState(false);
+  const [isExpanded, setExpand] = useState(false);
   const [text, setText] = useState("");
   const [selectedOption, setSelectedOption] = useState("Highly Relevant");
   const [noteType, setNoteType] = useState("HR");
@@ -11,7 +12,10 @@ const SideBar = ({ isSidebarOpen, toggleSidebar }) => {
 
   const toggleDropdown = () => {
     setDropdown(!isDropdown);
-    console.log(isDropdown);
+  };
+
+  const toggleExpand = () => {
+    setExpand(!isExpanded);
   };
 
   const dropdownClick = (option) => {
@@ -135,12 +139,16 @@ const SideBar = ({ isSidebarOpen, toggleSidebar }) => {
             </div>
           </div>
         </div>
-        <div className="notes">
+        <div
+          className={`notes ${
+            isExpanded && isSidebarOpen ? "notes-expanded" : "notes-collapsed"
+          }`}
+        >
           <h3>NOTES</h3>
           <div className="note-list">
-            <div className="expand-notes-btn">
+            <button className="expand-notes-btn" onClick={toggleExpand}>
               <IoMdExpand />
-            </div>
+            </button>
             <div className={`note ${noteType}`}>
               <span>{/** Insert [number] */}[2]</span>
               <p>
