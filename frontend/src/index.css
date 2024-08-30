@@ -1,0 +1,19 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+:root {
+  --fontFamily-common: "Roboto", sans-serif;
+  --fontFamily-second: consolas;
+  --sidebar-width: 600px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fontFamily-common);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
