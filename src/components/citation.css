@@ -29,9 +29,6 @@
     margin-bottom: 20px;
   }
   
-  .input-container {
-    /* position: relative; */
-  }
   
   .input-icon {
     position: absolute;
@@ -80,6 +77,19 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
+  .radio-container {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .radio-container-container{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
   
 textarea {
     width: 70%;
@@ -143,4 +153,13 @@ textarea::-webkit-scrollbar {
   
   .citation-style input[type="radio"] {
     margin-right: 5px;
+  }
+
+  .contributors {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-inputs {
+    display: flex;
   }

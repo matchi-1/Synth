@@ -1,15 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
-const { OpenAI } = require('openai'); // Use the latest import method
+const { OpenAI } = require('openai'); 
 const cors = require('cors');
 const app = express();
 app.use(express.json());
-app.use(cors()); // Enable CORS for all routes
+app.use(cors()); 
 
 
 
-// Create an OpenAI API client instance with your API key
+
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 });
@@ -18,7 +18,7 @@ const openai = new OpenAI({
     res.send('Server is running');
   });
   
-  // Endpoint to handle citation requests
+
   app.post('/synth', async (req, res) => {
     const { link } = req.body;
   
@@ -26,23 +26,48 @@ const openai = new OpenAI({
       const response = await axios.get(link);
       const content = response.data;
   
-      // Construct the prompt for GPT-4 Chat model
+
       const messages = [ 
         { role: 'system', content: 'You are a helpful assistant.' },
-        { role: 'user', content: `Please generate a json format citation for the following content. Don't format it in JSON, i only want the text. Only provide the citation without additional text. Use Author's Last Name, Author's Middle Name
-Author's First Name, Date Published, Date Accessed, Title, Website Title, URL\n\nContent:\n${content}` }
+        { role: 'user', content: `Please generate a json format citation for the following content
+          using this template, give me only the plain text version, dont format it into a json:
+          {
+            "authors": [
+              {
+                "lastName": "Author's Last Name",
+                "middleName": "Author's Middle Name",
+                "firstName": "Author's First Name"
+              },
+              {
+                "lastName": "Second Author's Last Name",
+                "middleName": "Second Author's Middle Name",
+                "firstName": "Second Author's First Name"
+              }
+              // Add more authors as needed
+            ],
+            "datePublished": "Date Published",
+            "dateAccessed": "Date Accessed",
+            "title": "Title",
+            "websiteTitle": "Website Title",
+            "url": "URL"
+          } 
+          
+          \n${content}` }
       ];
   
-      // Call GPT-4 Chat model to generate the citation
       const gptResponse = await openai.chat.completions.create({
         model: 'gpt-4o',
         messages: messages,
-        max_tokens: 500 // Adjust based on your needs
+        max_tokens: 500 
       });
+
+      
   
-      // Extract citation from the response
       const citation = gptResponse.choices[0].message.content.trim();
+
+      console.log(typeof(citation));
       res.json({ citation });
+      
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'An error occurred while generating the citation.' });
