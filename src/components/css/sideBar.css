@@ -130,6 +130,11 @@
 
 /* Notes */
 
+.notes-container {
+  font-size: 0.9rem;
+  padding: 15px 20px;
+}
+
 .styled-dropdown {
   position: relative; /* Ensure dropdown is relative to the button */
   display: flex;
@@ -163,7 +168,7 @@
 }
 
 .dropdown-menu li {
-  padding: 8px 12px;
+  padding: 8px 15px;
   cursor: pointer;
 }
 

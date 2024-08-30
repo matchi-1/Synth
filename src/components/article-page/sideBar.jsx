@@ -82,31 +82,33 @@ const SideBar = ({ isSidebarOpen, toggleSidebar }) => {
         <div className="notes-filter">
           <div className="styled-dropdown">
             <span>Include the following in your notes:</span>
-            <button className="dropdown-toggle" onClick={toggleDropdown}>
-              {selectedOption}
-            </button>
-            {isDropdown && (
-              <ul className="dropdown-menu">
-                <li
-                  onClick={() => dropdownClick("Highly Relevant")}
-                  className="highly-relevant"
-                >
-                  Highly Relevant
-                </li>
-                <li
-                  onClick={() => dropdownClick("Moderately Relevant")}
-                  className="moderately-relevant"
-                >
-                  Moderately Relevant
-                </li>
-                <li
-                  onClick={() => dropdownClick("Tangentially Relevant")}
-                  className="tangentially-relevant"
-                >
-                  Tangentially Relevant
-                </li>
-              </ul>
-            )}
+            <div className="dropdown">
+              <button className="dropdown-toggle" onClick={toggleDropdown}>
+                {selectedOption}
+              </button>
+              {isDropdown && (
+                <ul className="dropdown-menu">
+                  <li
+                    onClick={() => dropdownClick("Highly Relevant")}
+                    className="highly-relevant"
+                  >
+                    Highly Relevant
+                  </li>
+                  <li
+                    onClick={() => dropdownClick("Moderately Relevant")}
+                    className="moderately-relevant"
+                  >
+                    Moderately Relevant
+                  </li>
+                  <li
+                    onClick={() => dropdownClick("Tangentially Relevant")}
+                    className="tangentially-relevant"
+                  >
+                    Tangentially Relevant
+                  </li>
+                </ul>
+              )}
+            </div>
           </div>
         </div>
         <div className="notes"></div>

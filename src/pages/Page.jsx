@@ -1,7 +1,6 @@
 import SideBar from "../components/article-page/sideBar.jsx";
 import WebBrowser from "../components/article-page/webBrowser.jsx";
 import Header from "../components/header.jsx";
-import "./css/article.css";
 import { useState } from "react";
 
 function Page() {
@@ -9,7 +8,6 @@ function Page() {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
-    console.log("REEEEE");
   };
 
   return (
@@ -19,7 +17,7 @@ function Page() {
       {/* <SideBar /> */}
       <main className="article-main">
         <SideBar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
-        <div className={`article ${isSidebarOpen ? "open" : ""}`}></div>
+        <WebBrowser isSidebarOpen={isSidebarOpen} />
       </main>
     </div>
   );
