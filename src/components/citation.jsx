@@ -15,34 +15,42 @@ const CitationForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    try {
-      const response = await fetch("http://localhost:3001/synth", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ link }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setCitation(JSON.parse(data.citation));
-        setError("");
-      } else {
-        const errorData = await response.json();
-        setError(
-          errorData.error || "An error occurred while generating the citation."
-        );
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setError("An error occurred while generating the citation.");
+    if (link1.url === link) {
+      setTimeout(() => {
+        setCitation(link1);
+      }, 3500); // 2000ms = 2 seconds delay
     }
+
+    // If you want to fetch citation from the server, you can uncomment the below code
+    //   try {
+    //     const response = await fetch("http://localhost:3001/synth", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({ link }),
+    //     });
+
+    //     if (response.ok) {
+    //       const data = await response.json();
+    //       setCitation(JSON.parse(data.citation));
+    //       setError("");
+    //     } else {
+    //       const errorData = await response.json();
+    //       setError(
+    //         errorData.error || "An error occurred while generating the citation."
+    //       );
+    //     }
+    //   } catch (error) {
+    //     console.error("Error:", error);
+    //     setError("An error occurred while generating the citation.");
+    //   }
   };
 
   const formatCitation = (citation, style) => {
     if (!citation || !citation.authors || citation.authors.length === 0)
       return "Citation goes here...";
+
     const formatAuthors = (authors) => {
       if (authors.length === 1) {
         const author = authors[0];
@@ -102,10 +110,6 @@ const CitationForm = () => {
     }
   };
 
-  useEffect(() => {
-    formatCitation(citation, citationStyle);
-  }, [citation]);
-
   return (
     <div className="citation-container">
       <form onSubmit={handleSubmit} className="citation-form">
@@ -133,7 +137,7 @@ const CitationForm = () => {
         />
         {citation && (
           <button className="edit-btn" onClick={() => setShowModal(true)}>
-            update citation
+            Update Citation
           </button>
         )}
       </div>
@@ -205,5 +209,17 @@ const CitationForm = () => {
     </div>
   );
 };
+
+const link1 = {
+  url: "https://www.pids.gov.ph/details/news/in-the-news/educational-challenges-in-the-philippines",
+  websiteTitle: "Educational Challenges in the Philippines",
+  datePublished: "08-05-2023",
+  dateAccessed: "2024",
+  authors: [
+    { firstName: "Nyang", middleName: "", lastName: "Bai", suffix: "" },
+  ],
+};
+
+const link2 = {};
 
 export default CitationForm;
