@@ -15,9 +15,9 @@ function Page() {
   return (
     <div className="article-container">
       <Header toggleSidebar={toggleSidebar} />
-
       {/* <SideBar /> */}
       <main className="article-main">
+        <WebBrowser />
         <SideBar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
         <div className={`article ${isSidebarOpen ? "open" : ""}`}></div>
       </main>
