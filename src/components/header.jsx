@@ -6,15 +6,15 @@ import "./css/header.css";
 function Header({ toggleSidebar }) {
   return (
     <>
-      <Navbar key={false} expand={false} className="bg-body-tertiary mb-3">
+      <Navbar key={false} expand={false} className=" mb-3 navbar">
         <Container>
           <Navbar.Brand href="#">
             <img
-              className="header-logo"
+              className="site-logo"
               src="/assets/img/logo.png"
               alt="logo.png"
             />
-            Navbar Offcanvas
+            <h1 className="nav-title">SYNTHPAGE TITLE 1</h1>
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls={`offcanvasNavbar-expand-${false}`}
